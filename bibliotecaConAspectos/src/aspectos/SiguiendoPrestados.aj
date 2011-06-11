@@ -1,12 +1,21 @@
-//probando TortoiseHg
+
 package aspectos;
 
-import clases.Biblioteca;;
-public aspect SiguiendoPrestados {
-	pointcut seguirPrestado() : execution(* Biblioteca.sacar(..));
+import clases.*;
+
+public aspect SiguiendoPrestados{
+
 	
-	after() returning() : seguirPrestado() {
-		System.out.println("Se presto un libro.");
+	SiguiendoPrestados() {
+		System.out.println("Se creo una nueva instancia del aspecto.");
+	}
+	
+	
+	pointcut afterSacar() : execution(* Socio.sacar(..));
+	
+	after() : afterSacar() {
+		System.out.println("Se presto un libro al socio "+".");
+		
 	}
 
 }

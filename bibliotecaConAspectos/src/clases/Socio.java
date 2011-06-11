@@ -19,6 +19,10 @@ public class Socio
     private Biblioteca biblioteca;
     private String nombre;
 
+    public String getNombre()
+    {
+    	return nombre;
+    }
     public Socio(Biblioteca biblioteca, String nombre)
     {
         this.biblioteca = biblioteca;
