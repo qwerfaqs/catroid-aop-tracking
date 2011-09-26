@@ -18,8 +18,8 @@ public class Libro {
 
         final Libro  libro = (Libro) libre;
 
-        if ( !cat.getTitulo().equals( getTitulo() ) ) return false;
-        if ( !cat.getAutor().equals( getAutor() ) ) return false;
+        if ( !libro.getTitulo().equals( getTitulo() ) ) return false;
+        if ( !libro.getAutor().equals( getAutor() ) ) return false;
 
         return true;
     }
