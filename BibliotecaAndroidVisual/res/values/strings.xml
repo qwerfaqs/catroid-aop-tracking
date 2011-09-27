@@ -2,4 +2,33 @@
 <resources>
     <string name="hello">Hello World, ListadoLibros!</string>
     <string name="app_name">BibliotecaAndroidVisual</string>
+    <string-array name="libros_nombre_array">
+        <item>The Java language specification</item>
+        <item>Cómo programar en Java</item>
+        <item>Java: manual de referencia</item>
+        <item>Java para estudiantes</item>
+        <item>Java 5- Novedades del Lenguaje</item>
+        <item>Aplicaciones distribuidas en Java con tecnología RMI</item>
+        <item>Thinking in Java</item>
+    </string-array>
+    <string-array name="libros_autor_array">
+        <item>James Gosling</item>
+        <item>Harvey M. Deitel</item>
+        <item>Patrick Naughton</item>
+        <item>Douglas Bell</item>
+        <item>Marcello Valeri</item>
+        <item>Fatos Xhafa</item>
+        <item>Bruce Eckel</item>
+    </string-array>
+    <string-array name="libros_descripcion_array">
+        <item>If you want to know the precise meaning of the languages constructs, this is the source for you...</item>
+        <item>Comprender un típico entorno de desarrollo en Java. • Entender el papel de Java en el desarrollo de aplicaciones cliente/servidor distribuidas para Internet y Web...</item>
+        <item></item>
+        <item>El alcance de Java En este capítulo estableceremos el escenario. Veremos cómo y por qué Java se convirtió en lo que es y qué novedades hay sobre este lenguaje de programación...</item>
+        <item>Java 5, nombre en código "Tiger", es la ultima versión de la plataforma desarrollo Java.</item>
+        <item>Introducci ́on La programaci ́on distribuida es uno de los paradigmas m ́as importantes de la programación.</item>
+        <item>Bruce Eckels "Thinking in Java— demonstrates advanced topics.Explains sound object-oriented principles as they apply to Java.Hands-on Java CD available online...</item>
+    </string-array>
+    
+    
 </resources>
