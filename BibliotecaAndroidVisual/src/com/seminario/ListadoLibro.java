@@ -1,7 +1,5 @@
 package com.seminario;
 
-import com.seminario.controladoras.LibroControladora;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +8,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.seminario.clases.Libro;
+import com.seminario.controladoras.LibroControladora;
 
 public class ListadoLibro extends ListActivity {
     /** Called when the activity is first created. */
@@ -35,7 +37,12 @@ public class ListadoLibro extends ListActivity {
 			public void onItemClick(AdapterView<?> parent, View view, int posicion,
 					long id) {
 				// Ir a la otra actividad pasando el libro seleccionado{
-				//Intent intento = new Intent(ListadoLibro.this, )
+				Intent intento = new Intent(ListadoLibro.this, DescripcionLibro.class);
+				
+				Libro aux = libroControladora.devolverLibro(((TextView)view).getText().toString());//recuperar el id con el titulo del libro
+				
+				intento.putExtra("idLibro", aux.getId());//pasar como extra el id
+				startActivity(intento);
 				//}otra actividad
 				
 			}

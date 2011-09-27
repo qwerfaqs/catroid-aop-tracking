@@ -21,5 +21,9 @@ public class LibroControladora implements LibroInterfaz{
 	public String[] devolverLibrosNombre() {
 		return libroDao.devolverLibrosNombre();
 	}
+	@Override
+	public Libro devolverLibro(String nombre) {
+		return libroDao.devolverLibro(nombre);
+	}
 
 }
