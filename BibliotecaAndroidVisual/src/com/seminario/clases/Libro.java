@@ -50,4 +50,7 @@ public class Libro {
 		return descripcion;
 	}
 
+	public int getId() {
+		return id;
+	}
 }
