@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:orientation="vertical">
+    <TextView android:id="@+id/txtTitulo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/txtTitulo"></TextView>
+    <TextView android:id="@+id/txtTituloLibro" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/txtTituloLibro"></TextView>
+    <TextView android:id="@+id/txtAutor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/txtAutor"></TextView>
+    <TextView android:id="@+id/txtAutorLibro" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/txtAutorLibro"></TextView>
+    <TextView android:id="@+id/txtDescripcion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/txtDescripcion"></TextView>
+    <TextView android:id="@+id/txtDescripcionLibro" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/txtDescripcionLibro"></TextView>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btnMeGustaLibro" android:id="@+id/btnMeGustaLibro"></Button>
+    <Button android:id="@+id/btnNoMeGusta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btnNoMeGusta"></Button>
+    <Button android:id="@+id/btnIrListaLibro" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btnIrListaLibro"></Button>
+</LinearLayout>
