@@ -6,31 +6,48 @@ public class Libro {
 	String titulo;
 	String autor;
 	String descripcion;
-	
-	public Libro(String titulo, String autor, String descripcion) {
-		this.titulo = titulo;
-		this.autor = autor;
-		this.descripcion=descripcion;
-	}
-     public boolean equals(Object other) {
-        if (this == other) return true;
+
+	@Override
+	public boolean equals(Object other) {
+		if (this == other) return true;
         if ( !(other instanceof Libro) ) return false;
 
-        final Libro  libro = (Libro) libre;
+        final Libro  libro = (Libro) other;
 
         if ( !libro.getTitulo().equals( getTitulo() ) ) return false;
         if ( !libro.getAutor().equals( getAutor() ) ) return false;
 
         return true;
-    }
+	}
 
-    public int hashCode() {
-        int result;
-        result = getTitulo().hashCode();
-        result = 29 * result + getTitulo().hashCode();
-        result = 29 * result + getAutor().hashCode();
-        result = 29 * result + getDescripcion().hashCode();
-        return result;
-    }
+	@Override
+	public int hashCode() {
+		int result;
+		result = getTitulo().hashCode();
+		result = 29 * result + getTitulo().hashCode();
+		result = 29 * result + getAutor().hashCode();
+		result = 29 * result + getDescripcion().hashCode();
+		return result;
+	}
+	
+	public Libro(String titulo, String autor, String descripcion) {
+		id = idHist;
+		idHist++;
+		this.titulo = titulo;
+		this.autor = autor;
+		this.descripcion=descripcion;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	public String getAutor() {
+		return autor;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
 
 }
