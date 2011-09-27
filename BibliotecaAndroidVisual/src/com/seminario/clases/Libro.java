@@ -15,7 +15,7 @@ public class Libro {
         final Libro  libro = (Libro) other;
 
         if ( !libro.getTitulo().equals( getTitulo() ) ) return false;
-        if ( !libro.getAutor().equals( getAutor() ) ) return false;
+        //if ( !libro.getAutor().equals( getAutor() ) ) return false;//no manejo los componentes visuales lo suficiente como para distinguir objetos de libros que difieran en el titulo
 
         return true;
 	}
