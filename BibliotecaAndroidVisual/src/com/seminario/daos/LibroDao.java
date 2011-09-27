@@ -3,12 +3,14 @@ package com.seminario.daos;
 import java.util.ArrayList;
 
 import com.seminario.clases.Libro;
+import com.seminario.interfaces.LibroInterfaz;
 
-public class LibroDao {
+public class LibroDao implements LibroInterfaz {
 
 	ArrayList<Libro> libros; //otra opción es List
 	
 	public LibroDao() {
+		libros = new ArrayList<Libro>();
 		libros.add(new Libro("The Java language specification", "James Gosling", "If you want to know the precise meaning of the languages constructs, this is the source for you..."));
 		libros.add(new Libro("Cómo programar en Java", "Harvey M. Deitel", "Comprender un típico entorno de desarrollo en Java. • Entender el papel de Java en el desarrollo de aplicaciones cliente/servidor distribuidas para Internet y Web..."));
 		libros.add(new Libro("Java: manual de referencia", "Patrick Naughton", ""));
@@ -19,8 +21,31 @@ public class LibroDao {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.seminario.daos.LibroInterfaz#devolverLibros()
+	 */
+	/* (non-Javadoc)
+	 * @see com.seminario.daos.LibroInterfaz#devolverLibros()
+	 */
+	@Override
 	public ArrayList<Libro> devolverLibros()
 	{
 		return libros;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.seminario.daos.LibroInterfaz#devolverLibrosNombre()
+	 */
+	@Override
+	public String[] devolverLibrosNombre()
+	{
+		int i = 0;
+		String[] nombres = new String[libros.size()];
+		while(i<libros.size())
+		{
+			nombres[i]=libros.get(i).getTitulo();
+			i++;
+		}
+		return nombres;
 	}
 }
