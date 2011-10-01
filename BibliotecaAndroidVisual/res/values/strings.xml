@@ -36,7 +36,7 @@
         <string name="txtAutor">Autor</string>
         <string name="txtAutorLibro"></string>
         <string name="btnMeGustaLibro">Me Gusta</string>
-        <string name="btnNoMeGusta">No Me Gusta</string>
+        <string name="btnNoMeGustaLibro">No Me Gusta</string>
         <string name="btnIrListaLibro">Volver</string>
     
     

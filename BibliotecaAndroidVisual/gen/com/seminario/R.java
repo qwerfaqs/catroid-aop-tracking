@@ -21,7 +21,7 @@ public final class R {
     public static final class id {
         public static final int btnIrListaLibro=0x7f060008;
         public static final int btnMeGustaLibro=0x7f060006;
-        public static final int btnNoMeGusta=0x7f060007;
+        public static final int btnNoMeGustaLibro=0x7f060007;
         public static final int txtAutor=0x7f060002;
         public static final int txtAutorLibro=0x7f060003;
         public static final int txtDescripcion=0x7f060004;
@@ -38,7 +38,7 @@ public final class R {
         public static final int app_name=0x7f040001;
         public static final int btnIrListaLibro=0x7f04000a;
         public static final int btnMeGustaLibro=0x7f040008;
-        public static final int btnNoMeGusta=0x7f040009;
+        public static final int btnNoMeGustaLibro=0x7f040009;
         public static final int hello=0x7f040000;
         public static final int txtAutor=0x7f040006;
         public static final int txtAutorLibro=0x7f040007;
