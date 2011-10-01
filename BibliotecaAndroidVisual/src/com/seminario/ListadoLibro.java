@@ -39,9 +39,9 @@ public class ListadoLibro extends ListActivity {
 				// Ir a la otra actividad pasando el libro seleccionado{
 				Intent intento = new Intent(ListadoLibro.this, DescripcionLibro.class);
 				
-				Libro aux = libroControladora.devolverLibro(((TextView)view).getText().toString());//recuperar el id con el titulo del libro
+				//Libro aux = libroControladora.devolverLibro(((TextView)view).getText().toString());//recuperar el id con el titulo del libro, no hace falta ya que no existen libros con el mismo nombre
 				
-				intento.putExtra("idLibro", aux.getId());//pasar como extra el id
+				intento.putExtra("nombreLibro"/*"idLibro"*/, ((TextView)view).getText().toString()/*aux.getId()*/);//pasar como extra el id... Corrección pasar el nombre del libro
 				startActivity(intento);
 				//}otra actividad
 				
