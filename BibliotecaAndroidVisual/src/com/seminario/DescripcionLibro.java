@@ -8,6 +8,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.seminario.clases.ClickMeGustaLibro;
+import com.seminario.clases.ClickNoMeGustaLibro;
 import com.seminario.clases.Libro;
 import com.seminario.controladoras.LibroControladora;
 
@@ -45,8 +47,11 @@ public class DescripcionLibro extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				Intent intento = new Intent(DescripcionLibro.this, ListadoLibro.class);//crear el intento
-				startActivity(intento);//ir a la otra actividad
+				//crear una nueva actividad e iniciarla{
+				//Intent intento = new Intent(DescripcionLibro.this, ListadoLibro.class);//crear el intento
+				//startActivity(intento);//ir a la otra actividad, un alternativa podria ser ir para atras(en vez de lanzar una nueva actividad)
+				//}creear una nueva actividad e iniciarla. De este modo al precional la tecla retroceso (Esc = escape) en la maquina virtual navegamos por todo el historial de actividades de la aplicacion
+				finish();//finalizar la actividad. De esta forma esta actividad existe de a una vez
 				
 			}
 		});
@@ -57,7 +62,12 @@ public class DescripcionLibro extends Activity {
 		
 		//actualizar los componentes visuales con los datos{
 		txtTituloLibro.setText(libroSelec.getTitulo());
-		txtAutorLibro.setText(libroSelec.getTitulo());
+		txtAutorLibro.setText(libroSelec.getAutor());
+		txtDescripcionLibro.setText(libroSelec.getDescripcion());
 		//}actualiza datos
+		
+		
+		btnMeGustaLibro.setOnClickListener(new ClickMeGustaLibro());//acción al click en MeGusta
+		btnNoMeGustaLibro.setOnClickListener(new ClickNoMeGustaLibro());//acción "No Me Gusta libro"
 	}
 }
