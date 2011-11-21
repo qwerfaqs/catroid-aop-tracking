@@ -1,7 +1,6 @@
 package com.seminario;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,10 +41,9 @@ public class DescripcionLibro extends Activity {
 		btnIrListaLibro = (Button)findViewById(R.id.btnIrListaLibro);
 		//}recuperar componentes
 		
-		//accion boton volver{
+//		accion boton volver{
 		btnIrListaLibro.setOnClickListener(new OnClickListener() {
-			
-			@Override
+		
 			public void onClick(View arg0) {
 				//crear una nueva actividad e iniciarla{
 				//Intent intento = new Intent(DescripcionLibro.this, ListadoLibro.class);//crear el intento
@@ -55,11 +53,11 @@ public class DescripcionLibro extends Activity {
 				
 			}
 		});
-		//}volver
+//		}volver
 		
 		String nombreLibroSelec = getIntent().getStringExtra("nombreLibro");//recuperar el nombre seleccionado del extra
 		Libro libroSelec = libroControladora.devolverLibro(nombreLibroSelec);//con el nombre recuperar el Libro
-		
+		libroControladora.seleccionarLibro(libroSelec);
 		//actualizar los componentes visuales con los datos{
 		txtTituloLibro.setText(libroSelec.getTitulo());
 		txtAutorLibro.setText(libroSelec.getAutor());

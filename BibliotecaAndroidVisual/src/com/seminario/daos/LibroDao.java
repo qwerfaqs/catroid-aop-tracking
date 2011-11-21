@@ -24,7 +24,6 @@ public class LibroDao implements LibroInterfaz {
 	/* (non-Javadoc)
 	 * @see com.seminario.daos.LibroInterfaz#devolverLibros()
 	 */
-	@Override
 	public ArrayList<Libro> devolverLibros()
 	{
 		return libros;
@@ -33,7 +32,6 @@ public class LibroDao implements LibroInterfaz {
 	/* (non-Javadoc)
 	 * @see com.seminario.daos.LibroInterfaz#devolverLibrosNombre()
 	 */
-	@Override
 	public String[] devolverLibrosNombre()
 	{
 		int i = 0;
@@ -49,7 +47,6 @@ public class LibroDao implements LibroInterfaz {
 	/* (non-Javadoc)
 	 * @see com.seminario.daos.LibroInterfaz#devolverLibro(java.lang.String)
 	 */
-	@Override
 	public Libro devolverLibro(String nombre)
 	{
 		int i = 0;
