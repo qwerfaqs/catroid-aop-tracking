@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.seminario.clases.Libro;
 import com.seminario.controladoras.LibroControladora;
 
 public class ListadoLibro extends ListActivity {
@@ -33,9 +32,7 @@ public class ListadoLibro extends ListActivity {
         
         lv.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int posicion,
-					long id) {
+			public void onItemClick(AdapterView<?> parent, View view, int posicion, long id) {
 				// Ir a la otra actividad pasando el libro seleccionado{
 				Intent intento = new Intent(ListadoLibro.this, DescripcionLibro.class);
 				
