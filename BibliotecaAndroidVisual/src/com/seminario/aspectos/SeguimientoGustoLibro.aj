@@ -1,9 +1,10 @@
 package com.seminario.aspectos;
 
-import com.seminario.clases.ClickNoMeGustaLibro;
+import com.seminario.controladoras.LibroControladora;
+import com.seminario.clases.Libro;
 public aspect SeguimientoGustoLibro {
 
-	pointcut noMeGusta() : execution(*  ClickNoMeGustaLibro.onClick(..));
+	pointcut noMeGusta() : execution(*  LibroControladora.nomegustaLibro(Libro));
 	
 	after() returning() : noMeGusta() {
 		System.out.println("No me gusta un libro.");
