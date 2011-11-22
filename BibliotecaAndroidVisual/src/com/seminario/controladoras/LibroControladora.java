@@ -13,6 +13,9 @@ public class LibroControladora implements LibroInterfaz{
 	public LibroControladora() {
 		libroDao = new LibroDao();
 	}
+	public Libro getLibroSeleccionado() {
+		return libroSeleccionado;
+	}
 	public ArrayList<Libro> devolverLibros() {
 		return libroDao.devolverLibros();
 	}
