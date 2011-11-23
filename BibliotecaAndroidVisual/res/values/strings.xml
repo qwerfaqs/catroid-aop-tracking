@@ -38,6 +38,8 @@
         <string name="btnMeGustaLibro">Me Gusta</string>
         <string name="btnNoMeGustaLibro">No Me Gusta</string>
         <string name="btnIrListaLibro">Volver</string>
+        <string name="opcionConfig">Configuración</string>
+        <string name="opcionConfigCondensed">Config</string>
     
     
 </resources>
