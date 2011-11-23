@@ -2,13 +2,11 @@ package com.seminario;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.seminario.clases.ClickMeGustaLibro;
-import com.seminario.clases.ClickNoMeGustaLibro;
 import com.seminario.clases.Libro;
 import com.seminario.controladoras.LibroControladora;
 
@@ -17,9 +15,6 @@ public class DescripcionLibro extends Activity {
 	TextView txtTituloLibro;
 	TextView txtAutorLibro;
 	TextView txtDescripcionLibro;
-	Button btnMeGustaLibro;
-	Button btnNoMeGustaLibro;
-	Button btnIrListaLibro;
 	
 	LibroControladora libroControladora;
 	
@@ -36,24 +31,9 @@ public class DescripcionLibro extends Activity {
 		txtTituloLibro = (TextView)findViewById(R.id.txtTituloLibro);
 		txtAutorLibro = (TextView)findViewById(R.id.txtAutorLibro);
 		txtDescripcionLibro = (TextView)findViewById(R.id.txtDescripcionLibro);
-		btnMeGustaLibro = (Button)findViewById(R.id.btnMeGustaLibro);
-		btnNoMeGustaLibro = (Button)findViewById(R.id.btnNoMeGustaLibro);
-		btnIrListaLibro = (Button)findViewById(R.id.btnIrListaLibro);
 		//}recuperar componentes
 		
-//		accion boton volver{
-		btnIrListaLibro.setOnClickListener(new OnClickListener() {
-		
-			public void onClick(View arg0) {
-				//crear una nueva actividad e iniciarla{
-				//Intent intento = new Intent(DescripcionLibro.this, ListadoLibro.class);//crear el intento
-				//startActivity(intento);//ir a la otra actividad, un alternativa podria ser ir para atras(en vez de lanzar una nueva actividad)
-				//}creear una nueva actividad e iniciarla. De este modo al precional la tecla retroceso (Esc = escape) en la maquina virtual navegamos por todo el historial de actividades de la aplicacion
-				finish();//finalizar la actividad. De esta forma esta actividad existe de a una vez
-				
-			}
-		});
-//		}volver
+
 		
 		String nombreLibroSelec = getIntent().getStringExtra("nombreLibro");//recuperar el nombre seleccionado del extra
 		Libro libroSelec = libroControladora.devolverLibro(nombreLibroSelec);//con el nombre recuperar el Libro
@@ -65,7 +45,25 @@ public class DescripcionLibro extends Activity {
 		//}actualiza datos
 		
 		
-		btnMeGustaLibro.setOnClickListener(new ClickMeGustaLibro());//acción al click en MeGusta
-		btnNoMeGustaLibro.setOnClickListener(new ClickNoMeGustaLibro());//acción "No Me Gusta libro"
+	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.descripcion_menu, menu);
+		return true;
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	    case R.id.opcionMegusta:
+	    	libroControladora.megustaLibro();
+	        return true;
+	    case R.id.opcionNoMeGusta:
+	    	libroControladora.nomegustaLibro();
+	        return true;
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
 	}
 }
