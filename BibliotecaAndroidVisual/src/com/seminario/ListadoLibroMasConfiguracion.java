@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +24,8 @@ public class ListadoLibroMasConfiguracion extends Activity {
 	private ListView listLibros;
 
 	private boolean filtroSeguimiento = true;
+	private SharedPreferences pref; //preferencias
+	SharedPreferences.Editor editor;
 
 	private LibroControladora libroControladora;
 
@@ -33,10 +37,21 @@ public class ListadoLibroMasConfiguracion extends Activity {
 		listLibros = (ListView) findViewById(R.id.list_libros);
 	}
 
+	public boolean guardarSeguimiento(boolean seguimiento) {
+		this.filtroSeguimiento = seguimiento;
+		editor = pref.edit();
+		editor.putBoolean("seguimiento", seguimiento);
+		editor.commit();
+		return seguimiento;
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
+		pref = PreferenceManager.getDefaultSharedPreferences(this);//preferencias, puede ir en el onCreate()
+		filtroSeguimiento = pref.getBoolean("seguimiento", false);//recuperar seguimiento almacenado, puede ir en el onCreate()
+		
 		setContentView(R.layout.lista_libro_mas_configuracion);
 		levantarXml();
 
@@ -84,7 +99,7 @@ public class ListadoLibroMasConfiguracion extends Activity {
 					public void onClick(DialogInterface dialog,
 							int item, boolean estado) {
 						if (item == 0) {
-							filtroSeguimiento = estado;
+							filtroSeguimiento = guardarSeguimiento(estado);
 							// aca se podría desactivar el seguimiento
 						}
 					}
