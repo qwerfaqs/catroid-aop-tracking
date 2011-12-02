@@ -9,6 +9,7 @@ import com.seminario.daos.SeguimientoDao;
 public class SeguimentoControladora {
 
 	private SeguimientoDao seguimientoDao;
+	
 	public SeguimentoControladora(Context context, String name, CursorFactory factory, int version) {
 		seguimientoDao = new SeguimientoDao(context, name, factory, version);
 	}
@@ -19,6 +20,7 @@ public class SeguimentoControladora {
 		if(!seguimientoDao.existeElementoSeguimientoUsuario())
 		{
 			seguimientoDao.insertarSeguimientoUsuario(estado);
+			actualizarSeguimientoUsuario(estado);//no hace falta pero sería la forma correcta de darle un valor a estado del seguimiento
 		}
 		//else tendría que tirar una exepcion
 	}
