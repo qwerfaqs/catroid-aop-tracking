@@ -1,9 +1,11 @@
 package com.seminario.aspectos;
 
 import com.seminario.controladoras.LibroControladora;
+import com.seminario.controladoras.SeguimentoControladora;
 import com.seminario.clases.*;
 public aspect SeguimientoGustoLibro {
 
+	boolean estado;
 	
 	pointcut nomegustaLibro(LibroControladora obj) : execution(* LibroControladora.nomegustaLibro(Libro)) && this(obj);
 	
@@ -15,20 +17,35 @@ public aspect SeguimientoGustoLibro {
 	
 	pointcut seleccionarLibro(Libro obj) : call(* LibroControladora.seleccionarLibro(Libro)) && args(obj);
 	
+	pointcut estadoSeguimiento(boolean obj) : call(* SeguimentoControladora.actualizarSeguimientoUsuario(boolean)) && args(obj);
+	
 //	after(LibroControladora obj) : nomegustaLibro(obj) {
 //		System.out.println("No me gusta: " +obj.getLibroSeleccionado().getTitulo()+ ".");
 //		
 //	}
 	
 	before(Libro obj) : megustaLibro2(obj) {
-		System.out.println("Me gusta  : " + obj.getTitulo() + ".");
+		if(estado)//podría ir en la definición del poincut ... && estado
+		{
+			System.out.println("Me gusta  : " + obj.getTitulo() + ".");
+		}
 	}
 	
 	before(Libro obj) : nomegustaLibro2(obj) {
-		System.out.println("No me gusta  : " + obj.getTitulo() + ".");
+		if(estado)
+		{
+			System.out.println("No me gusta  : " + obj.getTitulo() + ".");
+		}
 	}
 	before(Libro obj) : seleccionarLibro(obj) {
-		System.out.println ("Ver detalle Libro: " +  obj.getTitulo() + ".");
+		if(estado)
+		{
+			System.out.println ("Ver detalle Libro: " +  obj.getTitulo() + ".");
+		}
+	}
+	
+	before(boolean obj) : estadoSeguimiento(obj){
+		estado = obj;
 	}
 //	after(LibroControladora obj) : megustaLibro(obj) {
 //		System.out.println("Me gusta: " +obj.getLibroSeleccionado().getTitulo()+ ".");
