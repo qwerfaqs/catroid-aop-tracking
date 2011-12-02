@@ -17,7 +17,8 @@ public aspect SeguimientoGustoLibro {
 	
 	pointcut seleccionarLibro(Libro obj) : call(* LibroControladora.seleccionarLibro(Libro)) && args(obj);
 	
-	pointcut estadoSeguimiento(boolean obj) : call(* SeguimentoControladora.actualizarSeguimientoUsuario(boolean)) && args(obj);
+//	pointcut estadoSeguimiento2(boolean obj) : call(* SeguimentoControladora.actualizarSeguimientoUsuario(boolean)) && args(obj);
+	pointcut estadoSeguimiento(SeguimentoControladora obj) : execution(* SeguimentoControladora.devolverSeguimientoUsuario()) && this(obj);
 	
 //	after(LibroControladora obj) : nomegustaLibro(obj) {
 //		System.out.println("No me gusta: " +obj.getLibroSeleccionado().getTitulo()+ ".");
@@ -44,9 +45,15 @@ public aspect SeguimientoGustoLibro {
 		}
 	}
 	
-	before(boolean obj) : estadoSeguimiento(obj){
-		estado = obj;
+	after(SeguimentoControladora obj) : estadoSeguimiento(obj)
+	{
+		estado = obj.isEstado();
 	}
+	
+//	before(boolean obj) : estadoSeguimiento2(obj){
+//		estado = obj;
+//	}
+	
 //	after(LibroControladora obj) : megustaLibro(obj) {
 //		System.out.println("Me gusta: " +obj.getLibroSeleccionado().getTitulo()+ ".");
 //		
