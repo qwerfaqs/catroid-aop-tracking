@@ -9,6 +9,7 @@ import com.seminario.daos.SeguimientoDao;
 public class SeguimentoControladora {
 
 	private SeguimientoDao seguimientoDao;
+	private boolean estado;
 	
 	public SeguimentoControladora(Context context, String name, CursorFactory factory, int version) {
 		seguimientoDao = new SeguimientoDao(context, name, factory, version);
@@ -28,11 +29,13 @@ public class SeguimentoControladora {
 	public void actualizarSeguimientoUsuario(boolean estado)
 	{
 		seguimientoDao.actualizarSeguimientoUsuario(estado);
+		this.estado = estado;
 	}
 	
 	public boolean devolverSeguimientoUsuario()
 	{
-		return seguimientoDao.devolverSeguimientoUsuario();
+		estado = seguimientoDao.devolverSeguimientoUsuario();
+		return estado;
 	}
 	
 	public void insertarSeguimientoServidor(boolean estado)
@@ -47,5 +50,9 @@ public class SeguimentoControladora {
 	public boolean devolverSeguimientoServidor()
 	{
 		return seguimientoDao.devolverSeguimientoServidor();
+	}
+	
+	public boolean isEstado() {
+		return estado;
 	}
 }
