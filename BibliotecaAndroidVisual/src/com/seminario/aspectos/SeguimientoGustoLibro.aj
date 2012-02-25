@@ -3,6 +3,7 @@ package com.seminario.aspectos;
 import com.seminario.controladoras.LibroControladora;
 import com.seminario.controladoras.SeguimentoControladora;
 import com.seminario.clases.*;
+import com.seminario.daos.GustoLibroDao;
 public aspect SeguimientoGustoLibro {
 
 	boolean estado;
@@ -28,7 +29,11 @@ public aspect SeguimientoGustoLibro {
 	before(Libro obj) : megustaLibro2(obj) {
 		if(estado)//podría ir en la definición del poincut ... && estado
 		{
-			System.out.println("Me gusta  : " + obj.getTitulo() + ".");
+			//System.out.println("Me gusta  : " + obj.getTitulo() + ".");
+			GustoLibroDao gld = new GustoLibroDao();
+			gld.megustaLibro(obj);
+			
+			
 		}
 	}
 	
