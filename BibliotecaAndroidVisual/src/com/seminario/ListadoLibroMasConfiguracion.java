@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,7 +17,6 @@ import android.widget.TextView;
 
 import com.seminario.controladoras.LibroControladora;
 import com.seminario.controladoras.SeguimentoControladora;
-import com.seminario.daos.SeguimientoDao;
 
 public class ListadoLibroMasConfiguracion extends Activity {
 
