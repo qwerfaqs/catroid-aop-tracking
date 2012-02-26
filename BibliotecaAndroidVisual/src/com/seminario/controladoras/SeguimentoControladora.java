@@ -5,7 +5,11 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
 
 import com.seminario.daos.SeguimientoDao;
-
+/***
+ * la clase se encarga de manejar el estado del seguimiento que puede ser encendido o apagado
+ * @author Juani
+ *
+ */
 public class SeguimentoControladora {
 
 	private SeguimientoDao seguimientoDao;
