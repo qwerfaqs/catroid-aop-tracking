@@ -40,17 +40,21 @@ public aspect SeguimientoGustoLibro {
 	before(Libro obj) : nomegustaLibro2(obj) {
 		if(estado)
 		{
-			System.out.println("No me gusta  : " + obj.getTitulo() + ".");
+			//System.out.println("No me gusta  : " + obj.getTitulo() + ".");
+			GustoLibroDao gld = new GustoLibroDao();
+			gld.nomegustaLibro(obj);
 		}
 	}
 	before(Libro obj) : seleccionarLibro(obj) {
 		if(estado)
 		{
-			System.out.println ("Ver detalle Libro: " +  obj.getTitulo() + ".");
+			//System.out.println ("Ver detalle Libro: " +  obj.getTitulo() + ".");
+			GustoLibroDao gld = new GustoLibroDao();
+			gld.seleccionarLibro(obj);
 		}
 	}
 	
-	after(SeguimentoControladora obj) : estadoSeguimiento(obj)
+	after(SeguimentoControladora obj) : estadoSeguimiento(obj)//estadoSeguimiento: los estados del seguimiento son encendido o apagado
 	{
 		estado = obj.isEstado();
 	}

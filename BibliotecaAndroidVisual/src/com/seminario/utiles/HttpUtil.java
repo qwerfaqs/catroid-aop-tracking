@@ -15,7 +15,6 @@ public class HttpUtil extends AsyncTask<String, Void, Void>{
 	@Override
 	public Void doInBackground(String... params) {
 		BufferedReader in = null;
-		boolean rta = true;
 		try
 		{
 			HttpClient client = new DefaultHttpClient();
@@ -32,7 +31,6 @@ public class HttpUtil extends AsyncTask<String, Void, Void>{
 		 }
 		catch (Exception ex)//borrar no  lo borro porque de otra forma lo tendría que resolver el aspecto
 		{//borrar
-			rta = false;
 		}//borrar
 		finally
 		 {
@@ -43,7 +41,6 @@ public class HttpUtil extends AsyncTask<String, Void, Void>{
 			 	} 
 			 	catch (IOException e) 
 			 	{
-				 	
 			 	}
 			 }
 		 }
