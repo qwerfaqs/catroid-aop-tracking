@@ -1,0 +1,1 @@
+This project is a final for the lecture Seminario, Career Information Systems Technician in the Mar del Plata UTN.
